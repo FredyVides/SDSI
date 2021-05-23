@@ -25,7 +25,7 @@ M=size(Udata,2);
 Ak=A0;
 for k=1:(M-1), u1=[u1 U0*(Ak*v0)];Ak=A0*Ak;end
 csvwrite('../DataSets/PGFUdata0.csv',u1);
-%u2=U0*u0;  
+  
 Ak=A;
 for k=1:(M-1), u2=[u2 U0*(Ak*v0)];Ak=A*Ak;end
 csvwrite('../DataSets/PGFUdata1.csv',u2);
