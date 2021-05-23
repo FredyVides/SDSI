@@ -62,19 +62,17 @@ tic,c0=SINDy(Sdata,dtdata,500,sigma);toc
 disp('=========================================================');
 disp('=========================================================');
 disp('Computing sparse identification with Douglas Rachford:');
-%tic, c00=DouglasRachford(Sdata,dtdata,sigma,tau,mu,MaxIt,tol);toc
+tic, c00=DouglasRachford(Sdata,dtdata,sigma,tau,mu,MaxIt,tol);toc
 disp('=========================================================');
 H=c(1)*toeplitz(E(1,M));
 H0=c0(1)*toeplitz(E(1,M));
-%H00=c00(1)*toeplitz(E(1,M));
+H00=c00(1)*toeplitz(E(1,M));
 Lk=max(2,(2*(difforder-3)-1));
 for k=2:2:Lk
     S=toeplitz(E(k,M),Z);
     H=H+c(k)*S+c(k+1)*S';
     H0=H0+c0(k)*S+c0(k+1)*S';
-%    H00=H00+c00(k)*S+c00(k+1)*S';
+    H00=H00+c00(k)*S+c00(k+1)*S';
 end
 w0=data(:,L);
-H00=H0;
-c00=c0;
 end
