@@ -27,7 +27,7 @@ function spsolver(A,Y,L,tol,delta)
 	    N0=max(sum(ac[f].>delta),1);
         Error = 1+tol;
         while (K<=L) && (Error>tol)
-            ff=sort(f[1:N0,1]);
+            ff=f[1:N0,1];
             X[:,k]=w;
             c=A[:,ff]\Y[:,k];
             X[ff,k]=c;
