@@ -35,7 +35,7 @@ def spsolver(A,Y,L=100,tol=1e-2,delta=1e-2):
         f=argsort(-ac)
         N0=max(sum(ac[f]>delta),1)
         while (K<=L) & (Error>tol):
-            ff=sort(f[:N0])
+            ff=f[:N0]
             X[:,k]=w
             c, res, rnk, s = lstsq(A[:,ff],Y[:,k],rcond=None)
             X[ff,k]=c
